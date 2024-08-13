@@ -21,10 +21,10 @@ fun firstPage(modifier: Modifier, goToFirstPage : (passValue : String) -> Unit) 
     Column (modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally){
+        Text(text = "Provide Name")
         TextField(value = input.value, onValueChange = {
             input.value = it
         })
-        Text(text = "First Page")
         Button(onClick = { goToFirstPage(input.value) }) {
             Text(text = "Second Page")
         }

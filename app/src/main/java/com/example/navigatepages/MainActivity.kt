@@ -57,12 +57,13 @@ fun StartNavigation(modifier: Modifier) {
         }
         composable(Page.TWO.name + "/{name}") {
             val name = it.arguments?.getString("name") ?: "no name"
-            secondPage(name, modifier = modifier) {
-                navController.navigate(Page.THREE.name)
+            secondPage(name, modifier = modifier) {age ->
+                navController.navigate(Page.THREE.name + "/$age")
             }
         }
-        composable(Page.THREE.name) {
-            thirdPage(modifier = modifier) {
+        composable(Page.THREE.name + "/{age}") {
+            val age : Int = (it.arguments?.getString("age") ?: "0").toInt()
+            thirdPage(age, modifier = modifier) {
                 navController.navigate(Page.ONE.name)
             }
         }
