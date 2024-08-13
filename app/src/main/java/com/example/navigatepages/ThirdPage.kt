@@ -11,12 +11,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.LineHeightStyle
 
 @Composable
-fun thirdPage(age : Int, modifier: Modifier, goToFirstPage : () -> Unit) {
+fun thirdPage(
+    name : String,
+    age : Int,
+    modifier: Modifier, goToFirstPage : () -> Unit
+) {
 
     Column (modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally){
-        Text(text = "Age is $age")
+        Text(text = "Name is $name and Age is $age")
         Button(onClick = { goToFirstPage() }) {
             Text(text = "First Page")
         }

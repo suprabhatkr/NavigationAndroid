@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.LineHeightStyle
 
 @Composable
-fun secondPage(name : String, modifier: Modifier, goToFirstPage : (Int) -> Unit) {
+fun secondPage(name : String, modifier: Modifier, goToFirstPage : (String, Int) -> Unit) {
 
     val input = remember { mutableStateOf("") }
 
@@ -25,7 +25,7 @@ fun secondPage(name : String, modifier: Modifier, goToFirstPage : (Int) -> Unit)
         TextField(value = input.value, onValueChange = {
             input.value = it
         })
-        Button(onClick = { goToFirstPage(input.value.toInt()) }) {
+        Button(onClick = { goToFirstPage(name, input.value.toInt()) }) {
             Text(text = "Third Page")
         }
     }
